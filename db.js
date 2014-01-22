@@ -9,4 +9,4 @@ var TodoSchema = new Schema({
 });
  
 mongoose.model('Todo', TodoSchema);
-mongoose.connect('mongodb://localhost/mashape');
+mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://localhost/mashape');
