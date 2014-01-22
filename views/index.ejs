@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mashape To Dos</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+
+  <body>
+    <h1>What Do You Need To Do?</h1>
+    <div class="todoContainer">
+    	<ul>
+    		<% todos.forEach( function(todo) { %>
+    		<li class="todoItem <%if (todo.done === true) {%>done<%}%>" data-id="<%= todo._id %>">
+    			<input type="hidden" class="hiddenCheckBox" name="done" value="0">
+    			<input type="checkbox" class="checkBox" name="done" value="1" <%if (todo.done === true) {%>checked<%}%>>
+    			<input class="title thin" type="text" name="title" value="<%= todo.title %>" placeholder="Title" autocomplete="off">
+    			<input class="description thin" type="" name="desc" value="<%= todo.desc %>" placeholder="Description" autocomplete="off">
+    			<a class="delete thin" href="#">X</a>
+    		</li>
+    		<% }); %>
+    	</ul>
+        <a id="newTodo" class="button" href="#">New todo</a>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="/javascripts/todo.js"></script>
+  </body>
+</html>

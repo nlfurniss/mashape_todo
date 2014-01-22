@@ -1,0 +1,91 @@
+body {
+	font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+	font-weight: 200;
+	overflow-x: hidden;
+	padding: 30px 0 0 0;
+}
+
+h1 {
+	font-size: 50px;
+	font-weight: 100;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.thin {
+	font-weight: 100;
+}
+
+.todoContainer {
+	width: 50%;
+	margin: 35px auto 0;
+}
+
+ul {
+	list-style: none;
+	padding: 0;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+}
+
+.todoItem {
+	box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.3);
+	margin: 10px 0;
+	padding: 3px;
+	position: relative;
+} 
+
+.todoItem.active {
+	box-shadow: 0 1px 5px 0 rgba(0, 31, 63, 0.8)
+}
+
+.todoItem.done {
+	box-shadow: 0 1px 5px 0 #10DE4F;
+}
+
+input {
+	font-family: inherit;
+}
+
+.title {
+	border: none;
+	font-size: 45px;
+	font-weight: 200;
+	padding: 3px;
+}
+
+.description {
+	font-size: 35px;
+	border: none;
+	padding: 3px;
+	width: 85%;
+}
+
+.delete {
+	font-size: 26px;
+	padding: 0 5px;
+	position: absolute;
+	top: 43px;
+	right: 5px;
+}
+
+.delete:hover {
+	font-weight: 200;
+}
+
+.button {
+	background-color: #0074d9;
+	border: none;
+	border-radius: 3px;
+	color: #ffffff;
+	font-size: 16px;
+	margin: 10px 0;
+	padding: 10px;
+}
+
+.button:hover {
+	background-color: #001f3f;
+}
