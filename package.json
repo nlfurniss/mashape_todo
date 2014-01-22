@@ -1,5 +1,5 @@
 {
-  "name": "application-name",
+  "name": "mashape todo",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -13,5 +13,8 @@
     "mongoose": "*",
     "request": "*",
     "twilio": "*"
+  },
+  "engines": {
+    "node": "0.10.24"
   }
 }
