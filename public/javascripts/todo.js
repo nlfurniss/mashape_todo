@@ -37,12 +37,22 @@ window.Todo = {
 			$(event.target).parent().removeClass('active');
 		});
 
+		$(document).on({
+		    mouseenter: function(event) {
+				$(event.target).parent().toggleClass('toDelete');
+		    },
+		    mouseleave: function(event) {
+				$(event.target).parent().toggleClass('toDelete');
+		}},'.delete');
+
 		$(document).on('click', '.delete', function(event) {
+			event.preventDefault();
 			$(event.target).parent().css({position: 'relative'}).animate({left: 5000}, 600, function(){ $(this).remove(); });
 			self.deleteTodo($(event.target));
 		});
 
 		$(document).on('click', '#newTodo', function(event) {
+			event.preventDefault();
 			$('.todoContainer ul').append(newTodoTemplate);
 		});
 	},

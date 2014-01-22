@@ -5,10 +5,10 @@ var client = require('twilio')(accountSid, authToken);
 
 var twilio = {}
 
-twilio.sendSMS = function (todo) {
-	client.messages.create({ 
-		to: settings['yourNumber'], //'+14087993759', 
-		from: '+15005550006', //+14085164279',
+twilio.sendSMS = function (todo) {		// NOTE: If the credentials supplied are for a test account, no message will be sent, BUT a successfull response is returned
+	client.messages.create({			// In these cases, check the server's stdout to see that the message was 'sent'
+		to: settings['yourNumber'],
+		from: '+15005550006',
 		body: todo + ' was completed!'  
 	}, function(err, message) { 
 		if (err) {

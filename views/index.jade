@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Mashape To Dos
+    link(rel='stylesheet', href='/stylesheets/style.css')
+
+  body
+    h1 What Do You Need To Do?
+    .todoContainer
+        ul
+            each todo in todos
+                li.todoItem(class=(todo.done == true ?'done':''), data-id="#{todo._id}")
+                    input.hiddenCheckBox(type="hidden", name="done", value="0")
+                    input.checkBox(type="checkbox", name="done", value="1", checked=todo.done == true ? 'true' : undefined)
+                    input.title.thin(type="text", name="title", value="#{todo.title}", placeholder="Title", autocomplete="off")
+                    input.description.thin(type="text", name="desc", value="#{todo.desc}", placeholder="Description", autocomplete="off")
+                    a.delete.thin(href="#") X
+
+        a#newTodo.button(href="#") New Todo
+
+    script(src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+    script(src="/javascripts/todo.js")
