@@ -1,22 +1,26 @@
 doctype html
-html
+html(ng-app="todoApp")
   head
     title Mashape To Dos
     link(rel='stylesheet', href='/stylesheets/style.css')
 
-  body
+  body(ng-controller="todoAppCtrl")
+    script.
+        window.initialData = !{JSON.stringify(todos)};
+
     h1 What Do You Need To Do?
     .todoContainer
         ul
-            each todo in todos
-                li.todoItem(class=(todo.done == true ?'done':''), data-id="#{todo._id}")
-                    input.hiddenCheckBox(type="hidden", name="done", value="0")
-                    input.checkBox(type="checkbox", name="done", value="1", checked=todo.done == true ? 'true' : undefined)
-                    input.title.thin(type="text", name="title", value="#{todo.title}", placeholder="Title", autocomplete="off")
-                    input.description.thin(type="text", name="desc", value="#{todo.desc}", placeholder="Description", autocomplete="off")
-                    a.delete.thin(href="#") X
-
+            li.todoItem(ng-repeat="todo in todos", ng-class="{'done' : todo.done == true}", data-id="{{todo._id}}")
+                input.hiddenCheckBox(type="hidden", name="done", value="0")
+                input.checkBox(type="checkbox", name="done", value="1")
+                input.title.thin(type="text", name="title", value="{{todo.title}}", placeholder="Title", autocomplete="off")
+                input.description.thin(type="text", name="desc", value="{{todo.desc}}", placeholder="Description", autocomplete="off")
+                a.delete.thin(href="#", ng-click="delete(todo._id)") X
         a#newTodo.button(href="#") New Todo
 
+
     script(src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js")
+    script(src="/javascripts/controllers.js")
     script(src="/javascripts/todo.js")

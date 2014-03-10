@@ -77,10 +77,10 @@ window.Todo = {
 
 	deleteTodo: function(target) {
 		var id = target.parent().attr('data-id');
-		$.ajax({
-			url: '/' + id,
-			type: 'DELETE'
-		});
+		// $.ajax({
+		// 	url: '/' + id,
+		// 	type: 'DELETE'
+		// });
 	}
 }
 
